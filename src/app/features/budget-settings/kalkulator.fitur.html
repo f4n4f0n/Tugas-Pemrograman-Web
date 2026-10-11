@@ -1,0 +1,92 @@
+    <header>
+        <h1>Budgeting Mahasiswa</h1>
+        <p>Rencanakan keuanganmu selama satu semester.</p>
+    </header>
+    <main>
+        <section class="card">
+            <h2>Input Anggaran</h2>
+
+            <form id="budgetForm">
+                <label for="semester">Durasi Semester (bulan)</label>
+                <input type="number" id="semester" name="semester" [(ngModel)]="semester" min="1" max="12" required>
+
+                <label for="dana">Dana yang Tersedia (Rp)</label>
+                <input type="number" id="dana" name="dana" [(ngModel)]="dana" min="0"
+                       placeholder="Contoh: 10000000" required>
+
+                <label for="ukt">UKT per Semester (Rp)</label>
+                <input type="number" id="ukt" name="ukt" [(ngModel)]="ukt" min="0"
+                       placeholder="Contoh: 3000000" required>
+
+                <label for="makan">Biaya Makan per Bulan (Rp)</label>
+                <input type="number" id="makan" name="makan" [(ngModel)]="makan" min="0"
+                       placeholder="Contoh: 900000" required>
+
+                <label for="transport">Transportasi per Bulan (Rp)</label>
+                <input type="number" id="transport" name="transport" [(ngModel)]="transport" min="0"
+                       placeholder="Contoh: 200000" required>
+
+                <label for="tempatTinggal">Tempat Tinggal per Bulan (Rp)</label>
+                <input type="number" id="tempatTinggal" name="tempatTinggal" [(ngModel)]="tempatTinggal" min="0"
+                       placeholder="Contoh: 500000" required>
+
+                <label for="internet">Internet dan Pulsa per Bulan (Rp)</label>
+                <input type="number" id="internet" name="internet" [(ngModel)]="internet" min="0"
+                       placeholder="Contoh: 100000" required>
+
+                <label for="kuliah">Kebutuhan Kuliah per Semester (Rp)</label>
+                <input type="number" id="kuliah" name="kuliah" [(ngModel)]="kuliah" min="0"
+                       placeholder="Contoh: 300000" required>
+
+                <label for="lainnya">Pengeluaran Lainnya per Bulan (Rp)</label>
+                <input type="number" id="lainnya" name="lainnya" [(ngModel)]="lainnya" min="0"
+                       placeholder="Contoh: 150000" required>
+
+                <label for="tabungan">Target Tabungan per Semester (Rp)</label>
+                <input type="number" id="tabungan" name="tabungan" [(ngModel)]="tabungan" min="0"
+                       placeholder="Contoh: 500000" required>
+
+                <button type="button" (click)="hitung()">Hitung Budget</button>
+                <button type="button" class="reset" (click)="reset()">Reset</button>
+            </form>
+        </section>
+        <section class="card hasil" id="hasil" aria-live="polite">
+            <h2>Hasil Perhitungan</h2>
+
+            @if (hasil(); as h) {
+                <div class="hasil-item">
+                    <span>Total Pengeluaran Semester</span>
+                    <strong>{{ rp(h.totalPengeluaran) }}</strong>
+                </div>
+
+                <div class="hasil-item">
+                    <span>Rata-rata Pengeluaran Bulanan</span>
+                    <strong>{{ rp(h.rataBulanan) }}</strong>
+                </div>
+
+                <div class="hasil-item">
+                    <span>Target Tabungan</span>
+                    <strong>{{ rp(h.targetTabungan) }}</strong>
+                </div>
+
+                <div class="hasil-item">
+                    <span>Sisa Dana Setelah Pengeluaran</span>
+                    <strong>{{ rp(h.sisaDana) }}</strong>
+                </div>
+
+                <div class="hasil-item">
+                    <span>Sisa Setelah Target Tabungan</span>
+                    <strong>{{ rp(h.sisaSetelahTabungan) }}</strong>
+                </div>
+
+                <p>{{ h.status }}</p>
+            } @else {
+                <p class="petunjuk">
+                    Masukkan anggaranmu, lalu tekan tombol Hitung Budget.
+                </p>
+            }
+        </section>
+    </main>
+    <footer>
+        <p>Budgeting Mahasiswa 2026</p>
+    </footer>

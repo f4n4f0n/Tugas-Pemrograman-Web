@@ -1,0 +1,147 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f3f5f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #006807;
+    color: white;
+    text-align: center;
+    padding: 30px 15px;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+main {
+    max-width: 750px;
+    margin: 30px auto;
+    padding: 0 15px;
+}
+
+.card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.10);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+input:focus {
+    outline: 2px solid #a1ff93;
+    border-color: #087f00;
+}
+
+button {
+    margin-top: 20px;
+    margin-right: 5px;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 5px;
+    background-color: #1bc415;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+button:hover {
+    background-color: #b3d81d;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+button.reset {
+    background-color: #6b7280;
+}
+
+button.reset:hover {
+    background-color: #4b5563;
+}
+
+.hasil-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.hasil-item strong {
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+#status {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 5px;
+    background-color: #eff6ff;
+    font-weight: bold;
+}
+
+.petunjuk {
+    color: #666;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #777;
+    font-size: 14px;
+}
+
+@media (max-width: 480px) {
+    .card {
+        padding: 18px;
+    }
+
+    .hasil-item {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .hasil-item strong {
+        text-align: left;
+    }
+}
